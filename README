@@ -92,3 +92,23 @@ The `Queue<T>` class is a generic implementation of a queue data structure that 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+# (5) Higher-Order Functions
+## Overview
+This section demonstrates the use of higher-order functions in TypeScript to create flexible task update mechanisms. The `createTaskUpdater` function allows for the creation of specific task update functions, such as marking a task as urgent.
+
+### Features:
+1. **Higher-Order Function:**
+    - `createTaskUpdater(updateFn: (task: Task) => void)`: A function that takes another function (`updateFn`) as an argument and returns a new function that applies `updateFn` to a `Task`. This allows for flexible and reusable task updates.
+
+2. **Function to Mark as Urgent:**
+    - `markAsUrgent`: A specific function created using `createTaskUpdater` that sets a task's priority to `'high'`.
+
+### Techniques Used:
+- **Higher-Order Functions**: By accepting a function as an argument, `createTaskUpdater` enables the creation of custom update functions that can be reused for various task modifications.
+- **Flexibility**: This approach allows for easy extension and modification of task properties without needing to rewrite the logic for each specific update.
+
+### Example Usage:
+- A `Task` is created with a default priority of `'low'`. Using `markAsUrgent`, the priority is updated to `'high'`, demonstrating the effectiveness of the higher-order function.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+

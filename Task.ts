@@ -1,31 +1,40 @@
-// Task 1 : Create a class Task with the following properties and methods:
-class Task {
-    private static taskCount = 0;  // static property to keep track of total tasks
+export class Task {
+    private static taskCount = 0;
 
     title: string;
     description: string;
     completed: boolean;
+    priority: 'low' | 'medium' | 'high';  // Added priority property
 
     constructor(title: string, description: string) {
         this.title = title;
         this.description = description;
-        this.completed = false;  // defaults to false
-        Task.taskCount++;  // increment total task count when a new task is created
+        this.completed = false;
+        this.priority = 'low';  // Defaults to 'low'
+        Task.taskCount++;
     }
 
-    // Method to mark the task as completed
     markCompleted(): void {
         this.completed = true;
     }
 
-    // Method to update the task's description
     updateDescription(newDescription: string): void {
         this.description = newDescription;
     }
 
-    // Static method to return total number of tasks created
     static totalTasks(): number {
         return Task.taskCount;
     }
 }
-export { Task };
+
+// Higher-order function that takes an update function as an argument
+function createTaskUpdater(updateFn: (task: Task) => void) {
+    return (task: Task) => {
+        updateFn(task);  // Apply the update function to the provided task
+    };
+}
+
+// Function to mark a task as urgent
+export const markAsUrgent = createTaskUpdater((task: Task) => {
+    task.priority = 'high';  // Set the task's priority to high
+});
