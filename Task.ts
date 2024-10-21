@@ -1,3 +1,4 @@
+// Task 1 : Create a class Task with the following properties and methods:
 class Task {
     private static taskCount = 0;  // static property to keep track of total tasks
 
@@ -27,3 +28,4 @@ class Task {
         return Task.taskCount;
     }
 }
+export { Task };

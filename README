@@ -1,5 +1,5 @@
-# Task Management System - Task Class
-
+                                                        ++ Task Management System ++ 
+# (1) Classes and OOP Programming 
 ## Overview
 This TypeScript implementation defines a `Task` class, which allows you to create and manage tasks with essential functionalities such as marking a task as completed and updating the description. The class also provides a static method to track the total number of tasks created.
 
@@ -20,3 +20,25 @@ This TypeScript implementation defines a `Task` class, which allows you to creat
 - **TypeScript Classes**: Encapsulation of task-related properties and methods inside a class structure.
 - **Static Property**: `taskCount` is used to track the total number of tasks created across all instances of the `Task` class.
 - **Static Method**: `totalTasks()` is a static method, meaning it can be called without an instance of the class, directly from the class itself.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+# (2) PriorityTask Class
+## Overview
+The `PriorityTask` class extends the base `Task` class and introduces the concept of task priority. It also overrides the `markCompleted()` method to provide a more specific output when a priority task is completed.
+
+### Features:
+1. **Properties:**
+    - Inherits all properties from the `Task` class.
+    - Adds `priority` (string): Specifies the task priority level (`'low' | 'medium' | 'high'`).
+
+2. **Methods:**
+    - Inherits all methods from the `Task` class.
+    - Overrides `markCompleted()` to print a message: `"Priority task [title] completed."` when the task is marked as complete.
+
+#### Techniques Used:
+- **Inheritance**: `PriorityTask` extends the `Task` class to reuse common task properties and methods.
+- **Polymorphism**: The `markCompleted()` method is overridden to provide custom functionality, while still retaining the core functionality of the original `Task` class.
+- **Type Safety**: TypeScript's union type (`'low' | 'medium' | 'high'`) ensures that only valid priority values can be assigned.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
