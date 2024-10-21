@@ -42,3 +42,28 @@ The `PriorityTask` class extends the base `Task` class and introduces the concep
 - **Type Safety**: TypeScript's union type (`'low' | 'medium' | 'high'`) ensures that only valid priority values can be assigned.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
+
+# (3) TeamMember Interface and Task Assignment
+## Overview
+The `TeamMember` interface defines the structure of a team member who can be assigned multiple tasks. The `assignTask()` function allows tasks to be assigned to a team member by adding the task to their list of tasks.
+
+### Features:
+1. **Interface:**
+    - `TeamMember`: Describes a team member with the following properties:
+        - `name` (string): The name of the team member.
+        - `role` (string): The role of the team member (e.g., Developer, Designer, etc.).
+        - `tasks` (Task[]): An array of tasks assigned to the team member.
+
+2. **Function:**
+    - `assignTask(member: TeamMember, task: Task)`: This function takes a `TeamMember` and a `Task` as arguments and adds the task to the member's `tasks` array, effectively assigning the task to them.
+
+### Techniques Used:
+- **TypeScript Interfaces**: The `TeamMember` interface defines the structure of an object, ensuring that team members have the required properties (name, role, and tasks).
+- **Type Annotations**: TypeScript enforces type safety by ensuring that the `assignTask()` function only accepts a valid `TeamMember` and `Task`.
+- **Array Manipulation**: The `tasks` array within each `TeamMember` is modified by pushing new tasks onto it.
+
+### Example Usage:
+- A `TeamMember` named Alice is defined as a Developer, and a task is created and assigned to her using the `assignTask()` function.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
