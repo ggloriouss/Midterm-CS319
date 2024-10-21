@@ -67,3 +67,28 @@ The `TeamMember` interface defines the structure of a team member who can be ass
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+# (4) Generic Queue<T> Class
+## Overview
+The `Queue<T>` class is a generic implementation of a queue data structure that can hold any type of data, such as `Task` or `TeamMember`. It provides methods to add items to the queue and remove items in a first-in, first-out (FIFO) manner.
+
+### Features:
+1. **Properties:**
+    - `items` (T[]): An array to hold the elements in the queue, where `T` is the type parameter.
+
+2. **Methods:**
+    - `enqueue(item: T)`: Adds an item of type `T` to the queue.
+    - `dequeue(): T | undefined`: Removes and returns the first item from the queue. Returns `undefined` if the queue is empty.
+    - Optional:
+      - `isEmpty()`: Returns `true` if the queue is empty, otherwise `false`.
+      - `peek()`: Returns the first item in the queue without removing it.
+
+### Techniques Used:
+- **Generics**: The `Queue<T>` class is generic, meaning it can store items of any type (`Task`, `TeamMember`, etc.) specified when creating an instance of the queue.
+- **Type Safety**: TypeScript ensures that only items of the specified type are added to the queue, providing compile-time safety.
+
+### Example Usage:
+- The `taskQueue` holds instances of `Task`, allowing you to add and remove tasks in FIFO order.
+- The `teamQueue` holds instances of `TeamMember`, demonstrating the flexibility of the generic queue to handle different data types.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
