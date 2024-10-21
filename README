@@ -1,0 +1,22 @@
+# Task Management System - Task Class
+
+## Overview
+This TypeScript implementation defines a `Task` class, which allows you to create and manage tasks with essential functionalities such as marking a task as completed and updating the description. The class also provides a static method to track the total number of tasks created.
+
+### Features:
+1. **Properties:**
+    - `title` (string): Title of the task.
+    - `description` (string): Description of the task.
+    - `completed` (boolean): Indicates whether the task is completed (defaults to `false`).
+
+2. **Methods:**
+    - `markCompleted()`: Marks the task as completed by setting `completed` to `true`.
+    - `updateDescription(newDescription: string)`: Updates the task's description.
+
+3. **Bonus:**
+    - `totalTasks()`: A static method that returns the total number of `Task` instances created.
+
+### Techniques Used:
+- **TypeScript Classes**: Encapsulation of task-related properties and methods inside a class structure.
+- **Static Property**: `taskCount` is used to track the total number of tasks created across all instances of the `Task` class.
+- **Static Method**: `totalTasks()` is a static method, meaning it can be called without an instance of the class, directly from the class itself.
