@@ -1,28 +1,22 @@
-import { Task, parseTaskData  } from './task';
+import { Task, parseTaskData, markAsUrgent, fetchTasks  } from './task';
 import { PriorityTask } from './PriorityTask';
 import { TeamMember } from './TeamMember';
 import { assignTask } from './AssignTask.ts';
 import { Queue } from './Queue';  
+import { calculateTotalCompletedTasks } from './taskUtils';
 
 //Usage
-const jsonData = `
-[
-    {"title": "Write report", "description": "Complete the quarterly report", "completed": false},
-    {"title": "Design logo", "description": "Create a logo for the new project", "completed": true}
-]
-`;
+async function loadTasks() {
+    try {
+        const tasks: Task[] = await fetchTasks();  // Fetching tasks asynchronously
+        
+        // Calculate the total completed tasks using the utility function
+        const completedCount = calculateTotalCompletedTasks(tasks);
+        console.log('Total Completed Tasks:', completedCount);
 
-const invalidJsonData = `
-[
-    {"title": "Prepare presentation", "description": "Create slides for the meeting", "completed": false},
-    {"title": "Test task", "description": "This is a test task"
-]
-`; // Missing closing brace
+    } catch (error) {
+        console.error('Error loading tasks:', error);
+    }
+}
 
-// Test with valid JSON data
-const tasks = parseTaskData(jsonData);
-console.log('Parsed Tasks:', tasks);
-
-// Test with invalid JSON data
-const invalidTasks = parseTaskData(invalidJsonData);
-console.log('Invalid Parse Result:', invalidTasks);
+loadTasks();

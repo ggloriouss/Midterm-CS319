@@ -183,3 +183,21 @@ This section demonstrates how to handle errors in JavaScript/TypeScript, specifi
 When valid JSON data is parsed, it returns an array of `Task` objects. In case of an error, it returns a custom error message indicating the failure.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
+
+# (9) Modules and Imports/Exports
+## Overview
+This section demonstrates the use of TypeScript modules to organize code into separate files. The `taskUtils.ts` file contains a utility function for calculating the total number of completed tasks, which is then imported and used in the `index.ts` file.
+
+### Files Created:
+1. **taskUtils.ts**:
+    - Contains the function `calculateTotalCompletedTasks(tasks: Task[])`, which takes an array of `Task` objects and returns the number of tasks marked as completed.
+
+2. **index.ts**:
+    - Imports the utility function from `taskUtils.ts` and uses it to calculate the total completed tasks for the fetched tasks.
+
+### Techniques Used:
+- **Module Exports and Imports**: Utilizing TypeScript’s module system to separate concerns, making the codebase more modular and maintainable.
+- **Utility Functions**: Creating a dedicated utility function for calculating completed tasks allows for code reuse and better organization.
+
+### Example Usage:
+- The `loadTasks()` function fetches tasks and then calculates the total completed tasks using the imported utility function, demonstrating the effective use of modules.

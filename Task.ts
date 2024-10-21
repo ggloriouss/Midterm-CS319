@@ -49,6 +49,41 @@ export function parseTaskData(jsonData: string): Task[] | string {
     }
 }
 
+// Higher-order function that takes an update function as an argument
+function createTaskUpdater(updateFn: (task: Task) => void) {
+    return (task: Task) => {
+        updateFn(task);  // Apply the update function to the provided task
+    };
+}
+
+// Function to mark a task as urgent
+export const markAsUrgent = createTaskUpdater((task: Task) => {
+    task.priority = 'high';  // Set the task's priority to high
+});
+
+// Async function to simulate fetching tasks from an external API
+export async function fetchTasks(): Promise<Task[]> {
+    try {
+        // Simulating a delay like a network request
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        // Simulating task data
+        const tasksData = [
+            { title: 'Write report', description: 'Complete the quarterly report' },
+            { title: 'Design logo', description: 'Create a logo for the new project' },
+            { title: 'Prepare presentation', description: 'Create slides for the meeting' },
+        ];
+
+        // Creating Task objects from the simulated data
+        const tasks: Task[] = tasksData.map(data => new Task(data.title, data.description));
+        return tasks;
+
+    } catch (error) {
+        console.error('Error fetching tasks:', error);
+        throw new Error('Failed to fetch tasks');
+    }
+}
+
 const tasksData = [
     { title: 'Write report', description: 'Complete the quarterly report', completed: false },
     { title: 'Design logo', description: 'Create a logo for the new project', completed: true },
