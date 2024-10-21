@@ -131,3 +131,32 @@ This section demonstrates how to use asynchronous programming in TypeScript to f
 - The `loadTasks()` function demonstrates how to call `fetchTasks()` and handle the result or any potential errors.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
+
+# (7) Array Methods
+## Overview
+This section demonstrates how to manipulate arrays of tasks using common array methods in TypeScript. The `loadTasks()` function retrieves tasks and applies the `map()`, `filter()`, and `reduce()` methods to perform specific operations on the tasks array.
+
+### Features:
+1. **map()**: Creates an array of task titles from the tasks array.
+2. **filter()**: Filters the tasks array to return only those tasks that are marked as incomplete.
+3. **reduce()**: Counts the total number of tasks marked as completed.
+
+### Techniques Used:
+- **Array Methods**:
+    - **map()**: This method is used to transform an array by applying a function to each element, producing a new array of the results.
+    - **filter()**: This method creates a new array with all elements that pass the test implemented by the provided function, allowing for easy exclusion of unwanted items.
+    - **reduce()**: This method executes a reducer function on each element of the array, resulting in a single output value, such as a count or sum.
+
+### Example Usage:
+- The `loadTasks()` function demonstrates how to use these array methods to:
+    - Extract the titles of tasks.
+    - Identify incomplete tasks.
+    - Count the number of completed tasks.
+
+### Output:
+When `loadTasks()` is executed, it outputs:
+- An array of task titles.
+- An array of incomplete tasks.
+- A count of the total completed tasks.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
