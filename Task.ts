@@ -63,3 +63,9 @@ export async function fetchTasks(): Promise<Task[]> {
         throw new Error('Failed to fetch tasks');
     }
 }
+
+const tasksData = [
+    { title: 'Write report', description: 'Complete the quarterly report', completed: false },
+    { title: 'Design logo', description: 'Create a logo for the new project', completed: true },
+    { title: 'Prepare presentation', description: 'Create slides for the meeting', completed: false },
+];
