@@ -1,32 +1,28 @@
-import { Task, markAsUrgent, fetchTasks } from './task';
+import { Task, parseTaskData  } from './task';
 import { PriorityTask } from './PriorityTask';
 import { TeamMember } from './TeamMember';
 import { assignTask } from './AssignTask.ts';
 import { Queue } from './Queue';  
 
+//Usage
+const jsonData = `
+[
+    {"title": "Write report", "description": "Complete the quarterly report", "completed": false},
+    {"title": "Design logo", "description": "Create a logo for the new project", "completed": true}
+]
+`;
 
-// Usage
-async function loadTasks() {
-    try {
-        const tasks: Task[] = await fetchTasks();  // Fetching tasks asynchronously
-        
-        // 1. Use map() to create an array of task titles
-        const taskTitles = tasks.map(task => task.title);
-        console.log('Task Titles:', taskTitles);
+const invalidJsonData = `
+[
+    {"title": "Prepare presentation", "description": "Create slides for the meeting", "completed": false},
+    {"title": "Test task", "description": "This is a test task"
+]
+`; // Missing closing brace
 
-        // 2. Use filter() to return only the tasks that are marked as incomplete
-        const incompleteTasks = tasks.filter(task => !task.completed);
-        console.log('Incomplete Tasks:', incompleteTasks);
+// Test with valid JSON data
+const tasks = parseTaskData(jsonData);
+console.log('Parsed Tasks:', tasks);
 
-        // 3. Use reduce() to count the total number of tasks marked as completed
-        const completedCount = tasks.reduce((count, task) => {
-            return task.completed ? count + 1 : count;
-        }, 0);
-        console.log('Total Completed Tasks:', completedCount);
-
-    } catch (error) {
-        console.error('Error loading tasks:', error);
-    }
-}
-
-loadTasks();  // Call the function to load tasks
+// Test with invalid JSON data
+const invalidTasks = parseTaskData(invalidJsonData);
+console.log('Invalid Parse Result:', invalidTasks);
