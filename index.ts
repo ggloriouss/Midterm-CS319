@@ -1,4 +1,4 @@
-import { Task, markAsUrgent } from './task';
+import { Task, markAsUrgent, fetchTasks } from './task';
 import { PriorityTask } from './PriorityTask';
 import { TeamMember } from './TeamMember';
 import { assignTask } from './AssignTask.ts';

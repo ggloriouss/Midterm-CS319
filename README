@@ -112,3 +112,22 @@ This section demonstrates the use of higher-order functions in TypeScript to cre
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
+# (6) Asynchronous Programming
+## Overview
+This section demonstrates how to use asynchronous programming in TypeScript to fetch a list of tasks from a simulated external API. The `fetchTasks()` function simulates an API call, returning an array of `Task` objects while handling errors appropriately.
+
+### Features:
+1. **Async Function:**
+    - `fetchTasks()`: An asynchronous function that simulates fetching tasks from an external API. It returns a Promise that resolves to an array of `Task` objects.
+
+2. **Error Handling:**
+    - The function uses `try/catch` to handle both successful fetch cases and errors. In case of an error, it logs the error and throws a new error for the calling function to handle.
+
+### Techniques Used:
+- **Asynchronous Programming**: The `async/await` syntax is used to manage asynchronous operations, allowing for cleaner code that is easier to read and understand.
+- **Promise**: A Promise is used to simulate the delay of an API call, which can be replaced with an actual HTTP request in a real application.
+
+### Example Usage:
+- The `loadTasks()` function demonstrates how to call `fetchTasks()` and handle the result or any potential errors.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
